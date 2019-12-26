@@ -6,3 +6,8 @@
 
 * [git 기초](./git.md)
 * [마크다운 활용](./markedown.md)
+
+
+
+## 2. Python
+
