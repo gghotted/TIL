@@ -20,8 +20,9 @@ pd.Series() : series객체를 생성합니다. `series객체는 한 행의 데�
   * array-like, iterable, dict, scalar value
 * `index` : value에 해당하는 이름의 집합. 중복 가능하다. 기본은 0부터 순서대로 할당된다.
   * array-like
-
 * `dtype` : 데이터 타입을 지정한다. 숫자 이외의 데이터에는 `object`로 출력된다.
+
+
 
 ### series+비교연산자
 
@@ -35,7 +36,7 @@ series 객체에 비교 연산자를 사용하면, 객체내의 각각의 데이
 
 ### df.loc
 
-rows, columns의 그룹으로 접근합니다. label 또는 [`boolean array`](#series+비교연산자)로 접근 가능합니다.
+rows, columns의 그룹으로 접근합니다. label 또는 [`boolean array`](#series비교연산자)로 접근 가능합니다.
 
 * df.loc[행라벨]
 * df.loc[[행라벨,행라벨]]
