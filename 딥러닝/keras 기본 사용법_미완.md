@@ -9,6 +9,7 @@
 
 ```python
 from keras.models import Sequential
+from keras.layers import Dense, Activation
 
 model = Sequential() #시퀀스 모델 객체 생성
 model.add(Dense(512, input_shape=(2, ))) # 입력층 추가
