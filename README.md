@@ -1,13 +1,14 @@
-# TIL (Today I learned)
+# TIL
 
-> 매일 배운 내용을 정리합니다.
+> 공부한 내용을 정리합니다.
+>
+> 목적은 자료를 필요할 때 찾아 사용할 수 있도록 하는 것입니다.
+>
+> 1. 서식 정하기
+>
+> 2. unclassified에 작성하기
+>
+> 3. 3개 이상의 비슷한 자료가 쌓이면 classified에 분류하기
 
-## git
 
-* [git 기초](git/git.md)
-* [마크다운 활용](git/markedown.md)
-
-* [gitignore](git/gitignore.md)
-
-## 딥러닝
 
