@@ -1,16 +1,8 @@
 # 마크다운 예제
 
-**마크다운 명령어에 해당하는 예제들**
-
 <br>
 
-<br>
-
-<br>
-
-
-
-**제목**
+## 제목
 
 ```
 # 제목
@@ -21,17 +13,14 @@
 # 제목
 
 ## 제목
+
 ### 제목
 
+
+
 <br>
 
-<br>
-
-<br>
-
-
-
-**목록**
+## 목록
 
 ```
 * a
@@ -43,15 +32,11 @@
 * b
 * c
 
+
+
 <br>
 
-<br>
-
-<br>
-
-
-
-**순서목록**
+## 순서목록
 
 ```
 1. a
@@ -59,20 +44,15 @@
 3. c
 ```
 
-1. a
+* a
+* b
+* c
 
-2. b
-3. c
+
 
 <br>
 
-<br>
-
-<br>
-
-
-
-**코드 블록**
+## 코드 블록
 
 ```
 ​```python
@@ -84,31 +64,23 @@ print('thank code block')
 print('thank code block')
 ```
 
+
+
 <br>
 
-<br>
-
-<br>
-
-
-
-**링크**
+## 링크
 
 ```
-[naver.com](https://www.naver.com/)
+[naver](https://www.naver.com/)
 ```
 
 [naver](https://www.naver.com/)
 
+
+
 <br>
 
-<br>
-
-<br>
-
-
-
-**이미지**
+## 이미지
 
 ```
 ![galaxy](images/galaxy.jpg)
@@ -119,15 +91,11 @@ print('thank code block')
 
 ![galaxy](images/galaxy.jpg)
 
+
+
 <br>
 
-<br>
-
-<br>
-
-
-
-**텍스트 강조**
+## 텍스트 강조
 
 ```
 **박경인**
