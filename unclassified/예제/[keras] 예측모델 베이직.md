@@ -1,6 +1,10 @@
 # keras 예측모델 베이직
 
+<br>
+
 **keras 기본 모델로 예측하기**
+
+<br>
 
 ```python
 from keras.models import Sequential
@@ -34,6 +38,8 @@ score = model.evaluate(X_test, Y_test)
 print("loss=", score[0])
 print("accuracy=", score[1])
 ```
+
+<br>
 
 ```
 Train on 13500 samples, validate on 1500 samples

@@ -1,4 +1,4 @@
-#  명령어
+#  git gitignore
 
 <br>
 
