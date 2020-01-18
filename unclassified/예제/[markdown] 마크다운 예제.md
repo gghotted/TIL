@@ -4,6 +4,10 @@
 
 <br>
 
+<br>
+
+<br>
+
 
 
 **제목**
@@ -107,12 +111,12 @@ print('thank code block')
 **이미지**
 
 ```
-![markdown](images/galaxy s10.jpg)
+![markdown](./images/galaxy s10.jpg)
 
 # 파일 - 환경설정 - 가능하다면 상대적 위치 사용
 ```
 
-![galaxy s10](./images/galaxy s10.jpg)
+![galaxy s10](images/galaxy s10.jpg)
 
 <br>
 
