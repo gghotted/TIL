@@ -2,7 +2,7 @@
 
 **유저 이름 등록**
 
-```sh
+```bash
 $ git config --global user.name gghotted
 ```
 <br/>
