@@ -2,7 +2,8 @@
 
 **유저 이름 등록**
 
-```bash
+```python
+# test
 $ git config --global user.name gghotted
 ```
 <br/>
