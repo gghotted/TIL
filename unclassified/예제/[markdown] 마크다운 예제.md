@@ -114,6 +114,7 @@ print('thank code block')
 ![galaxy](images/galaxy.jpg)
 
 # 파일 - 환경설정 - 가능하다면 상대적 위치 사용
+# 파일 이름 띄어쓰기하면 안되는 것 같음
 ```
 
 ![galaxy](images/galaxy.jpg)
