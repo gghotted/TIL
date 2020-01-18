@@ -21,6 +21,10 @@
 
 <br>
 
+<br>
+
+<br>
+
 
 
 **목록**
@@ -34,6 +38,10 @@
 * a
 * b
 * c
+
+<br>
+
+<br>
 
 <br>
 
@@ -54,6 +62,10 @@
 
 <br>
 
+<br>
+
+<br>
+
 
 
 **코드 블록**
@@ -70,6 +82,10 @@ print('thank code block')
 
 <br>
 
+<br>
+
+<br>
+
 
 
 **링크**
@@ -78,7 +94,11 @@ print('thank code block')
 [naver.com](https://www.naver.com/)
 ```
 
-[naver.com](https://www.naver.com/)
+[naver](https://www.naver.com/)
+
+<br>
+
+<br>
 
 <br>
 
@@ -92,7 +112,11 @@ print('thank code block')
 # 파일 - 환경설정 - 가능하다면 상대적 위치 사용
 ```
 
-![markdown](images/galaxy s10.jpg)
+![galaxy s10](./images/galaxy s10.jpg)
+
+<br>
+
+<br>
 
 <br>
 
@@ -106,11 +130,7 @@ print('thank code block')
 ~~박경인~~
 ```
 
-**박경인**
-*박경인*
-~~박경인~~
-
-<br>
-
-
+**박경인**<br>
+*박경인*<br>
+~~박경인~~<br>
 
