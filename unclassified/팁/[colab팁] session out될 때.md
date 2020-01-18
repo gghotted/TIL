@@ -6,7 +6,7 @@
 
 <br>
 
-![timeout](images/session timeout.jpg)
+![timeout](images/timeout.jpg)
 
 <br>
 
