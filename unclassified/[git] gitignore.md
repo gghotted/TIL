@@ -1,6 +1,6 @@
 # git gitignore
 
-```bash
+```
 # 특정 확장자 모두
 *.xlsx
 
