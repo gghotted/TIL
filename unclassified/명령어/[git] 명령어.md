@@ -52,16 +52,6 @@ $ git add images/
 
 <br/>
 
-## 유저 이름 등록
-
-```bash
-$ git config --global user.name gghotted
-```
-
-
-
-<br/>
-
 ## 현재 디렉토리
 
 ```bash
