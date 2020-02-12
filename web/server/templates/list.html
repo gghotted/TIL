@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <title>object detection</title>
+</head>
+<body>
+<h1>yolo image 갤러리</h1>
+<table>
+
+    <form action="/upload" method="POST"
+           enctype="multipart/form-data">
+         <input type="file" name="img" /> <br>
+         Title :<input type=text name=title>
+         <select name=algorithm>
+             <option value="norm">기본</option>
+             <option value="yolo">YOLO</option>
+             <option value="face">face detection</option>
+         </select>
+         <input type="submit" value="저장"/>
+    </form>
+
+    {% for img in images %}
+    <tr>
+        <td>
+            <h4>{{img.title}}</h4>
+            <a href="/view?id={{img.id}}"><img src="/static/{{img.file}}" width="250"></a>
+        </td>
+        <td><a href="/delete?id={{img.id}}">삭제</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>
