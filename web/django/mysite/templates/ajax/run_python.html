@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+<button id="btnAdd">add cell</button>
+<div id="cells">
+    <div id="cell">
+        <textarea rows="10" cols="40" id="code"></textarea>
+        <button id="btnRun">실행</button>
+        <div id="result">결과</div>
+    </div>
+</div>
+<script>
+    $("#btnRun").click(function() {
+        param = {code:$("#code").val()};
+        $.get("runpython", param, function(data){
+            $("#result").html(data);
+            console.log(data);
+        });
+    });
+    $("#btnAdd").click( function() {
+        $("#cells").append($("#cell").clone())
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+
+<input type="text" name="op1" id="op1"> + <input type="text" name="op2" id="op2">
+<button id="btnCalc" value>=</button> <input type="text" name="result" id="result">
+
+<script>
+    $("#btnCalc").click(function() {
+        param = {op1:$("#op1").val(), op2:$("#op2").val()};
+        $.get("calc", param, function(data){
+            $("#result").val(data.result);
+            console.log("서버를 갔다왔습니다.");
+        });
+        console.log("서버에 요청을 완료했습니다.");
+    });
+</script>
+</body>
+</html>

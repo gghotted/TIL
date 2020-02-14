@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+<input id="id"><br>
+<input type="password" id="pwd"><br>
+<button id="btnLogin">로그인</button>
+<script>
+    $("#btnLogin").click(function() {
+        param = {id:$("#id").val(), pwd:$("#pwd").val()};
+        $.get("login", param, function(data){
+            if(data.result == true)
+                alert("로그인 성공");
+            else{
+                alert("로그인 실패");
+                $("id").focus();
+            }
+        });
+    });
+</script>
+</body>
+</html>
