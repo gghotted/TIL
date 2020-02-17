@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for user in users %}
+    이름 : {{user.name}}, 나이 : {{user.age}}
+    <a href="listuser?userid={{user.userid}}">삭제</a> <br>
+{% endfor %}
+<form action="">
+    <input name="q">
+    <button type="submit">검색</button>
+</form>
+<form action="" method="post">
+    {% csrf_token %}
+    ID : <input name="userid"><br>
+    name : <input name="name"><br>
+    age : <input name="age"><br>
+    hobby : <input name="hobby"><br>
+    <button type="submit">+</button>
+</form>
+</body>
+</html>

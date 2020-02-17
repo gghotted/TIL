@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from .faceverification import face_verification
+from .models import User
 
 DB_UID = 'gghotted'
 DB_UPWD = 'elwlahs2'
@@ -51,3 +52,27 @@ def uploadimage(request):
         request.session["user"] = result
         return redirect("/service")
     return redirect("/static/login.html")
+
+
+def list_user(request):
+    if request.method == 'GET':
+        q = request.GET.get('q', '')
+        userid = request.GET.get('userid', '')
+        if q == '':
+            users = User.objects.all()
+        else:
+            users = User.objects.filter(name__icontains=q)
+
+        if userid == '':
+            users = User.objects.all()
+        else:
+            User.objects.get(userid=userid).delete()
+            return redirect('/listuser')
+        return render(request, 'template2.html', {"users": users})
+
+
+    else:
+        keys = ['userid', 'name', 'age', 'hobby']
+        User(**{key: request.POST[key] for key in keys}).save()
+        return redirect('/listuser')
+
