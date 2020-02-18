@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',  # full path : myapp.apps.MyappConfig
     'django_extensions',
+    'blog'
 ]
 
 MIDDLEWARE = [

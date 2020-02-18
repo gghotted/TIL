@@ -1,0 +1,13 @@
+{% if pk %}
+<form action="{% url 'blog:edit' pk %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>작성</button>
+</form>
+{% else %}
+<form action="{% url 'blog:add' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>작성</button>
+</form>
+{% endif %}
