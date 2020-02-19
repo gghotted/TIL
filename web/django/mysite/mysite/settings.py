@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',  # full path : myapp.apps.MyappConfig
     'django_extensions',
-    'blog'
+    'blog',
+    'board'
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'utils.context_processors.url_params',
+                'utils.context_processors.categories',
             ],
         },
     },
@@ -128,3 +131,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+CATEGORIES = ['common', 'sale', 'etc']

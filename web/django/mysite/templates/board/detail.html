@@ -1,0 +1,7 @@
+{% extends 'board/base.html' %}
+{% block content %}
+    {{post.title}}<br>
+    {{post.text|linebreaks}}
+    <hr>
+    <a href="{% url 'board:manager' url_params.category post.pk 'edit' %}">수정</a>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'board/base.html' %}
+{% block content %}
+    <h4>{{url_params.category}}게시판</h4>
+    <button type="button" onclick="location.href='{% url 'board:manager' url_params.category 0 'add' %}' ">글쓰기</button>
+    {% for post in posts %}
+        <p><a class="post" href="{% url 'board:manager' post.category post.id 'detail' %}">{{post.title}}</a></p>
+    {% endfor %}
+{% endblock %}

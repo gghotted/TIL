@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .header{
+            padding: 15px;
+        }
+        .category{
+            padding: 15px;
+        }
+        .content{
+            padding: 30px;
+        }
+        .post{
+            color: black;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <font color="green" size="6">Blog</font>
+    {% if request.user.is_authenticated %}
+    <font color="red" size="3">{{request.user.username}}님 환영합니다!</font>
+    {% endif %}
+</div>
+
+<div class="category">
+    {% for category in categories %}
+        <a href="{% url 'board:manager' category 0 'list' %}">{{category}}</a>
+    {% endfor %}
+</div>
+
+<div class="content">
+{% block content %}
+{% endblock %}
+</div>
+
+</body>
+</html>
