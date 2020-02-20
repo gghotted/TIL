@@ -133,3 +133,7 @@ STATICFILES_DIRS = [
 ]
 
 CATEGORIES = ['common', 'sale', 'etc']
+
+# CATEGORIES = {'자유 게시판':'common',
+#               '장터 게시판': 'sale',
+#               '기타 게시판': 'etc'}

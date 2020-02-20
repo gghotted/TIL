@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+
+<button id="btnAdd">추가하기</button>
+<div id="view">
+    <div id="item" hidden>
+        <a href="list?id=4"> <span id="title"></span> </a>
+        조회수<span id="views"></span>
+        <a id="del">지우기</a>
+        <br>
+    </div>
+</div>
+<script>
+    var page = 0;
+
+
+    function delete_post(pk){
+        $.get('/board/ajaxdel', {pk:pk}, function(json){
+            alert(json.message);
+            $('#item_' + pk).remove();
+        });
+    }
+
+
+    function getPage(page){
+        $.get('/board/ajaxget', {page:page}, function(json){
+            var posts = json.posts;
+            for (i = 0; i < json.posts.length; i++) {
+                // sample을 복사
+                var item = $('#item').clone();
+
+                // sample id 수정
+                item.attr('id', 'item_' + posts[i].id);
+
+                // 하위 element 데이터 삽입
+                $('#title', item).html(posts[i].title);
+                $('#views', item).text(posts[i].views);
+                $('#del', item).attr('href', 'javascript:delete_post(' + posts[i].id + ')');
+
+                // item #view에 올리기
+                $("#view").append(item);
+                item.show();
+            }
+        });
+    }
+
+
+    $('#btnAdd').click(function(){
+        getPage(++page);
+    });
+
+</script>
+</body>
+</html>

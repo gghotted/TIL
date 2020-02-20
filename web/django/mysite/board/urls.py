@@ -9,4 +9,9 @@ urlpatterns = [
     path('<category>/<int:pk>/<mode>', views.ViewManager.as_view(), name='manager'),
     path('logout', views.logout, name='logout'),
     path('login', views.LoginView.as_view(), name='login'),
+
+    # test
+    # path('', views.page_test),
+    path('ajaxdel', views.ajax_delete),
+    path('ajaxget', views.ajax_get),
 ]

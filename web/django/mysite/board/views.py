@@ -1,9 +1,40 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect, reverse
+from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout as loggedout
 from django.views.generic import View
-from django.conf import settings
+from django.core.paginator import Paginator
+from django.core import serializers
 from . import models
 from . import forms
+
+
+def page_test(request):
+    all_objects = [{'id': 1, 'name': '홍길동1'},
+                   {'id': 2, 'name': '홍길동2'},
+                   {'id': 3, 'name': '홍길동3'},
+                   {'id': 4, 'name': '홍길동4'},
+                   {'id': 5, 'name': '홍길동5'},
+                   {'id': 6, 'name': '홍길동6'},
+                   {'id': 7, 'name': '홍길동7'}]
+    page = request.GET.get('page', 1)
+    paginator = Paginator(all_objects, 3)
+    objects = paginator.page(page)
+    return render(request, "board/page.html", {"objects": objects})
+
+
+def ajax_delete(request):
+    pk = request.GET.get("pk")
+    # models.Board.objects.get(pk=pk).delete()
+    return JsonResponse({'message': '삭제 성공!'})
+
+
+def ajax_get(request):
+    posts = models.Board.objects.filter(category='common')
+    page = int(request.GET.get('page', 1))
+    num_of_page = 3
+    posts = posts[(page-1)*num_of_page:page*num_of_page]
+    post_dicts = [{'id': post.id, 'title': post.title, 'views': post.views} for post in posts]
+    return JsonResponse({'posts': post_dicts})
 
 
 # Create, Edit 한개의 View 클래스로 처리
@@ -15,6 +46,10 @@ class ViewManager(View):
                 posts = posts.filter(author=request.user)
             if category:
                 posts = posts.filter(category=category)
+
+            page = request.GET.get('page', 1)
+            paginator = Paginator(posts, 3)
+            posts = paginator.page(page)
             return render(request, "board/list.html", {'posts': posts})
 
         elif mode == 'detail':

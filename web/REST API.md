@@ -19,3 +19,9 @@
 >**두 번째,** 자원에 대한 `행위는 HTTP Method(GET, POST, PUT, DELETE)로 표현`한다.
 >다른 것은 다 잊어도 위 내용은 꼭 기억하시길 바랍니다.
 
+
+
+# spa
+
+* [spa](http://devstory.ibksplatform.com/2017/08/spasigle-page-applications.html)
+* [react spa](https://brunch.co.kr/@go-rani/4)

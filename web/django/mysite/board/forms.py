@@ -1,4 +1,4 @@
-from django.forms import ModelForm, CharField, Textarea, ChoiceField, ValidationError
+from django.forms import ModelForm, ValidationError
 from . import models
 
 
