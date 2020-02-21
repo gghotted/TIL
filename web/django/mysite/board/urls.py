@@ -14,4 +14,7 @@ urlpatterns = [
     # path('', views.page_test),
     path('ajaxdel', views.ajax_delete),
     path('ajaxget', views.ajax_get),
+
+    path('search/<category>/<int:page>', views.board_search),
+    path('photo', views.PhotoView.as_view(), name='photo')
 ]

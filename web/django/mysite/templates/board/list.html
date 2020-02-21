@@ -12,7 +12,7 @@
 
     <!--글-->
     {% for post in posts %}
-        <p><a class="post" href="{% url 'board:manager' post.category post.id 'detail' %}">{{post.title}}</a></p>
+        <p><a class="post" href="{% url 'board:manager' post.category post.id 'detail' %}">{{post.author}} {{post.title}} {{post.views}}</a></p>
     {% endfor %}
 
     <!--paginator-->

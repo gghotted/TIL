@@ -6,6 +6,9 @@ from django.core.paginator import Paginator
 from django.core import serializers
 from . import models
 from . import forms
+from django.db import connection
+from django.core.files.storage import FileSystemStorage
+from django.conf import settings
 
 
 def page_test(request):
@@ -42,8 +45,8 @@ class ViewManager(View):
     def get(self, request, mode, pk, category):
         if mode == 'list':
             posts = models.Board.objects.all()
-            if request.user.is_authenticated:
-                posts = posts.filter(author=request.user)
+            # if request.user.is_authenticated:
+            #     posts = posts.filter(author=request.user)
             if category:
                 posts = posts.filter(category=category)
 
@@ -110,3 +113,71 @@ class LoginView(View):
 def logout(request):
     loggedout(request)
     return redirect(reverse('board:manager', args=['common', 0, 'list']))
+
+
+def board_search(request, category, page):
+    # django login 함수 사용하였음
+    username = request.user.username
+
+    # username, category 필터링
+    cursor = connection.cursor()
+    cursor.execute(f'''
+    SELECT username, title, views
+    From board_board b, auth_user u
+    WHERE u.id = b.author_id and u.username = '{username}' and category = '{category}'
+    ''')
+
+    # page 필터링
+    posts = dictfetchall(cursor)
+    posts = posts[(page-1)*3: page*3]
+    return render(request, 'board/board_search.html', {'posts': posts})
+
+def dictfetchall(cursor):
+    desc = cursor.description
+    return [
+        dict(zip([col[0] for col in desc], row))
+        for row in cursor.fetchall()
+    ]
+
+
+class PhotoView(View):
+    def get(self, request):
+        images = PhotoView.get_images(request.user.username)
+        return render(request, 'board/photolist.html', {'images': images})
+
+    def post(self, request):
+        # 물리경로에 세이브
+        file = request.FILES['filename']
+        username = request.POST['username']
+        save_path = f'{settings.BASE_DIR}/static/faces/{username}/{file.name}'
+        fs = FileSystemStorage()
+        fs.save(save_path, file)
+
+        # db에 세이브
+        PhotoView.insert_img(username, file.name)
+
+        return redirect('board:photo')
+
+    @staticmethod
+    def get_images(username):
+        cursor = connection.cursor()
+        cursor.execute(f''' SELECT filename FROM board_image i JOIN auth_user u
+                            ON i.author_id = u.id
+                            WHERE u.username = '{username}'; ''')
+        return dictfetchall(cursor)
+
+    @staticmethod
+    def insert_img(username, filename):
+        # username 으로부터 author_id 가져오기
+        cursor = connection.cursor()
+        cursor.execute(f''' SELECT id from auth_user
+                            WHERE username='{username}'; ''')
+        author_id = cursor.fetchone()[0]
+
+        cursor.execute(f''' INSERT INTO board_image
+                            ("author_id", "filename")
+                            VALUES ({author_id}, '{filename}'); ''')
+
+
+
+

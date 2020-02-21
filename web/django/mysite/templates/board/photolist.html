@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+"{{request.user.username}}"님의 사진첩<br>
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="filename">
+    <button>사진 전송</button>
+    <input type="hidden" name="username" value="{{request.user.username}}">
+</form>
+
+{% for img in images %}
+<img src="/static/faces/{{request.user.username}}/{{img.filename}}" width="150" height="150">
+{% endfor %}
+</body>
+</html>
