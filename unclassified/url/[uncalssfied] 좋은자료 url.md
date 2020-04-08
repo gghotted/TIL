@@ -16,3 +16,6 @@
 
   
 
+# Django Nginx
+
+* https://brownbears.tistory.com/16
